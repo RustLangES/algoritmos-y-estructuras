@@ -77,6 +77,7 @@ pub mod tests {
 
         run(v); // Ejecuta la función principal con el vector
 
+        // Este código es extremadamente inseguro, genera comportamiento inesperado si no se administra correctamente
         unsafe { println!("Buffer: {:?}", BUFFER_SLICE) }; // Imprime el estado final del buffer
     }
 }
