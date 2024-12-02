@@ -2,6 +2,64 @@
 use super::{stack_node::StackNode, StackPointer};
 use crate::NodeItemTraits;
 
+/// # Estructura de Datos: Pila (Stack)
+///
+/// La pila (Stack) es una estructura de datos LIFO (Last In, First Out), donde el último elemento
+/// en entrar es el primero en salir. Es útil en escenarios donde se necesita procesar elementos en
+/// el orden inverso al que llegaron, como en la evaluación de expresiones y en la gestión de la recursión.
+///
+/// La implementación de la pila en Rust utiliza punteros inteligentes (`Option<Box<StackNode<T>>>`)
+/// para manejar los nodos de la pila. A continuación, se describen los métodos principales
+/// que proporciona esta estructura de datos:
+///
+/// ## Métodos
+///
+/// ### `new`
+///
+/// ```rust
+/// pub fn new() -> Self
+/// ```
+///
+/// Crea una nueva pila vacía.
+///
+/// ### `push`
+///
+/// ```rust
+/// pub fn push(&mut self, item: T)
+/// ```
+///
+/// Agrega un nuevo elemento a la cima de la pila.
+///
+/// ### `pop`
+///
+/// ```rust
+/// pub fn pop(&mut self) -> Option<T>
+/// ```
+///
+/// Remueve y retorna el elemento de la cima de la pila. Retorna `None` si la pila está vacía.
+///
+/// ### `is_empty`
+///
+/// ```rust
+/// pub fn is_empty(&self) -> bool
+/// ```
+///
+/// Verifica si la pila está vacía. Retorna `true` si la pila no contiene elementos.
+///
+/// ### `peek`
+///
+/// ```rust
+/// pub fn peek(&self) -> Option<T>
+/// ```
+///
+/// Permite ver el elemento en la cima de la pila sin eliminarlo.
+///
+/// ## Implementación
+///
+/// La estructura `Stack` está implementada de tal manera que maneja nodos (`StackNode`) que contienen
+/// el valor del elemento y un puntero al nodo anterior en la pila. Esta implementación permite agregar
+/// y remover elementos de manera eficiente.
+
 // Definimos la estructura de la pila con un atributo top que apunta a la cima de la pila
 #[derive(Default)]
 pub struct Stack<T: NodeItemTraits> {
